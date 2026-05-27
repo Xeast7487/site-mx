@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Layout title="Services & Pricing — Maxime Turgeon Photographer" lang="en">
+  <Nav lang="en" />
+  <main>
+
+    <section class="page-hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <p class="eyebrow">Services & pricing</p>
+        <h1>INVEST IN<br /><span>YOUR IMAGE.</span></h1>
+        <p>Clear packages designed for athletes and fitness brands.</p>
+      </div>
+    </section>
+
+    <section class="packages">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Packages</p>
+          <h2>Choose your formula.</h2>
+        </div>
+        <div class="pkg-grid">
+          <div class="pkg-card reveal">
+            <div class="pkg-header">
+              <span class="pkg-label">Essential</span>
+              <div class="pkg-price"><strong>$299</strong><span>+ tax</span></div>
+            </div>
+            <ul>
+              <li>✓ 1.5-hour session</li>
+              <li>✓ 1 location of your choice</li>
+              <li>✓ 25 retouched photos</li>
+              <li>✓ Delivery within 5 business days</li>
+              <li>✓ Private online gallery</li>
+            </ul>
+            <a href="/en/contact" class="pkg-btn">Book now →</a>
+          </div>
+
+          <div class="pkg-card featured reveal">
+            <div class="pkg-badge">Popular</div>
+            <div class="pkg-header">
+              <span class="pkg-label">Professional</span>
+              <div class="pkg-price"><strong>$599</strong><span>+ tax</span></div>
+            </div>
+            <ul>
+              <li>✓ 3-hour session</li>
+              <li>✓ 2 locations / outfits</li>
+              <li>✓ 60 retouched photos</li>
+              <li>✓ Delivery within 7 business days</li>
+              <li>✓ Private online gallery</li>
+              <li>✓ 5 Instagram-optimized photos</li>
+            </ul>
+            <a href="/en/contact" class="pkg-btn">Book now →</a>
+          </div>
+
+          <div class="pkg-card reveal">
+            <div class="pkg-header">
+              <span class="pkg-label">Premium</span>
+              <div class="pkg-price"><strong>$1,299</strong><span>+ tax</span></div>
+            </div>
+            <ul>
+              <li>✓ Full day (8 hours)</li>
+              <li>✓ Unlimited locations</li>
+              <li>✓ 120+ retouched photos</li>
+              <li>✓ Delivery within 10 business days</li>
+              <li>✓ Private online gallery</li>
+              <li>✓ Complete social media pack</li>
+              <li>✓ 60-second recap video</li>
+            </ul>
+            <a href="/en/contact" class="pkg-btn">Book now →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="addons">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Add-ons</p>
+          <h2>Customize your session.</h2>
+        </div>
+        <div class="addons-grid">
+          {[
+            { label: 'Travel outside Montréal', price: '$0.50/km' },
+            { label: 'Additional photos', price: '$5/photo' },
+            { label: 'Rush delivery (48h)', price: '+$99' },
+            { label: 'Studio session (rental)', price: 'Per studio' },
+            { label: 'Video content (Reels)', price: 'Quote' },
+            { label: 'Extended commercial rights', price: 'Quote' },
+          ].map(a => (
+            <div class="addon-item reveal">
+              <span>{a.label}</span>
+              <strong>{a.price}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">How it works</p>
+          <h2>Simple, clear, effective.</h2>
+        </div>
+        <div class="steps">
+          {[
+            { n: '01', title: 'Get in touch', desc: 'Submit your request via the form. We\'ll discuss your project, goals, and find the ideal date.' },
+            { n: '02', title: 'Planning', desc: 'We choose locations, outfits and angles together. I prepare every detail to maximize results.' },
+            { n: '03', title: 'The session', desc: 'Relax — I handle posing direction, lighting and timing. My job: make you look your best.' },
+            { n: '04', title: 'Delivery', desc: 'Your retouched photos are delivered in a private online gallery. You pick your favorites in HD.' },
+          ].map(s => (
+            <div class="step reveal">
+              <span class="step-num">{s.n}</span>
+              <div><h3>{s.title}</h3><p>{s.desc}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common questions.</h2>
+        </div>
+        <div class="faq-list">
+          {[
+            { q: 'Do I need experience in front of a camera?', a: 'Not at all. I guide every client on posing. My job is to make you feel comfortable and capture your best.' },
+            { q: 'Can I use the photos for commercial purposes?', a: 'Packages include personal use and social media rights. For paid advertising or extended rights, a surcharge applies.' },
+            { q: 'Do you travel outside Montréal?', a: 'Yes! I work all across Québec. A mileage fee applies from Montréal ($0.50/km).' },
+            { q: 'What if there\'s bad weather for an outdoor session?', a: 'We reschedule at no charge. Weather is uncontrollable — but the quality of your photos isn\'t.' },
+          ].map(f => (
+            <details class="faq-item reveal">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container reveal">
+        <div>
+          <h2>A question? A project?</h2>
+          <p>I respond to all inquiries within 48 hours.</p>
+        </div>
+        <a href="/en/contact" class="btn-dark">Get in touch →</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  main { padding-top: 72px; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-header h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
+  .page-hero { position: relative; background: var(--bg); padding: 7rem 2rem 6rem; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 100% 50%, rgba(240,165,0,0.06) 0%, transparent 60%); }
+  .page-hero .container { position: relative; max-width: 800px; }
+  h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; margin-bottom: 1.5rem; }
+  h1 span { color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.2); }
+  .page-hero > .container > p { font-size: 1rem; color: var(--gray); }
+  .packages { padding: 6rem 2rem; background: var(--bg-2); }
+  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
+  .pkg-card { background: var(--bg-3); border: 1px solid var(--border); border-radius: 20px; padding: 2.25rem; display: flex; flex-direction: column; gap: 1.5rem; position: relative; transition: border-color 0.25s; }
+  .pkg-card:hover { border-color: rgba(255,255,255,0.2); }
+  .pkg-card.featured { border-color: var(--accent); background: var(--bg); }
+  .pkg-badge { position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 99px; white-space: nowrap; }
+  .pkg-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+  .pkg-price { display: flex; align-items: baseline; gap: 0.4rem; margin-top: 0.5rem; }
+  .pkg-price strong { font-size: 2.75rem; font-weight: 900; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+  .pkg-price span { font-size: 0.8rem; color: var(--gray); }
+  .pkg-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+  .pkg-card ul li { font-size: 0.875rem; color: var(--gray); }
+  .pkg-card.featured ul li { color: rgba(255,255,255,0.75); }
+  .pkg-btn { background: var(--bg-2); color: var(--white); border: 1px solid var(--border); text-align: center; padding: 0.8rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700; transition: background 0.2s, border-color 0.2s; }
+  .pkg-card.featured .pkg-btn { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .pkg-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .addons { padding: 5rem 2rem; }
+  .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .addon-item { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); transition: background 0.2s; }
+  .addon-item:hover { background: var(--bg-2); }
+  .addon-item:nth-child(3n) { border-right: none; }
+  .addon-item:nth-last-child(-n+3) { border-bottom: none; }
+  .addon-item span { font-size: 0.875rem; color: var(--gray); }
+  .addon-item strong { font-size: 0.875rem; color: var(--accent); font-weight: 700; }
+  .process { padding: 6rem 2rem; background: var(--bg-2); }
+  .steps { display: flex; flex-direction: column; }
+  .step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-size: 2.5rem; font-weight: 900; color: var(--accent); letter-spacing: -0.04em; opacity: 0.4; line-height: 1; }
+  .step h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.9rem; color: var(--gray); line-height: 1.75; }
+  .faq { padding: 5rem 2rem; }
+  .faq-list { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  details.faq-item { border-bottom: 1px solid var(--border); }
+  details.faq-item:last-child { border-bottom: none; }
+  details summary { padding: 1.25rem 1.5rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+  details summary::after { content: '+'; font-size: 1.2rem; color: var(--accent); flex-shrink: 0; transition: transform 0.25s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details summary:hover { background: var(--bg-2); }
+  details p { padding: 0 1.5rem 1.25rem; font-size: 0.875rem; color: var(--gray); line-height: 1.75; }
+  .cta-band { background: var(--accent); padding: 4rem 2rem; }
+  .cta-band .container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cta-band h2 { font-size: 1.6rem; font-weight: 900; color: var(--bg); margin-bottom: 0.25rem; }
+  .cta-band p { font-size: 0.875rem; color: rgba(0,0,0,0.55); }
+  .btn-dark { background: var(--bg); color: var(--white); font-size: 0.9rem; font-weight: 800; padding: 0.9rem 2rem; border-radius: 10px; white-space: nowrap; transition: opacity 0.2s; }
+  .btn-dark:hover { opacity: 0.85; }
+  @media (max-width: 900px) { .pkg-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } .addons-grid { grid-template-columns: 1fr; } .addon-item:nth-child(3n) { border-right: none; } .addon-item:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); } .addon-item:last-child { border-bottom: none; } }
+  @media (max-width: 768px) { .page-hero { padding: 5rem 1.25rem 4rem; } .packages, .addons, .process, .faq { padding: 4rem 1.25rem; } .cta-band { padding: 3rem 1.25rem; } .cta-band .container { flex-direction: column; text-align: center; } .step { grid-template-columns: 50px 1fr; gap: 1.25rem; } .step-num { font-size: 1.75rem; } }
+</style>

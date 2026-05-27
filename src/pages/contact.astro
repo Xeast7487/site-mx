@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Contact — Maxime Turgeon Photographe" lang="fr">
+  <Nav lang="fr" />
+  <main>
+
+    <section class="page-hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <p class="eyebrow">On vous écoute</p>
+        <h1>PARLONS DE<br /><span>VOTRE PROJET.</span></h1>
+        <p>Consultation gratuite, sans engagement. Réponse dans les 48h.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="info-col">
+          <h2>Coordonnées</h2>
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div><strong>Localisation</strong><span>Montréal, QC<br />Disponible partout au Québec</span></div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div><strong>Téléphone</strong><a href="tel:5141234567">(514) 123-4567</a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div><strong>Courriel</strong><a href="mailto:maxime@mturgeon.photo">maxime@mturgeon.photo</a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </div>
+              <div><strong>Instagram</strong><a href="https://www.instagram.com/" target="_blank" rel="noopener">@maximeturgeon.photo</a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div><strong>Disponibilité</strong><span>Lundi – samedi</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-col">
+          <form id="contact-form">
+            <input type="hidden" name="access_key" value="dfbe06ad-660e-4693-b83b-afd55332f6b1" />
+            <input type="hidden" name="subject" value="Nouvelle demande — Maxime Turgeon Photo" />
+            <input type="hidden" name="from_name" value="Site web Maxime Turgeon" />
+            <div class="row">
+              <div class="field"><label for="nom">Nom</label><input type="text" id="nom" name="nom" placeholder="Votre nom" required /></div>
+              <div class="field"><label for="email">Courriel</label><input type="email" id="email" name="email" placeholder="votre@email.com" required /></div>
+            </div>
+            <div class="field"><label for="tel">Téléphone</label><input type="tel" id="tel" name="tel" placeholder="(514) 000-0000" /></div>
+            <div class="field">
+              <label for="type">Type de séance</label>
+              <select id="type" name="type">
+                <option value="">Choisir...</option>
+                <option>Séance individuelle — Essentiel (299$)</option>
+                <option>Séance individuelle — Professionnel (599$)</option>
+                <option>Séance individuelle — Premium (1 299$)</option>
+                <option>Contenu de marque / Gym</option>
+                <option>Événement fitness</option>
+                <option>Autre / Je veux discuter</option>
+              </select>
+            </div>
+            <div class="field"><label for="date">Date souhaitée</label><input type="text" id="date" name="date" placeholder="Ex : fin juin, samedi matin..." /></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Parlez-moi de votre projet, vos objectifs, votre gym préféré..." rows="4" required></textarea></div>
+            <button type="submit" id="submit-btn">Envoyer ma demande →</button>
+            <p id="form-success" hidden>Message envoyé ! Je vous réponds dans les 48h. ✓</p>
+            <p id="form-error" hidden>Une erreur s'est produite. Veuillez réessayer.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer lang="fr" />
+</Layout>
+
+<style>
+  main { padding-top: 72px; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  .page-hero { position: relative; background: var(--bg); padding: 7rem 2rem 6rem; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 20% 50%, rgba(240,165,0,0.06) 0%, transparent 60%); }
+  .page-hero .container { position: relative; max-width: 700px; }
+  h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; margin-bottom: 1.5rem; color: var(--white); }
+  h1 span { color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.2); }
+  .page-hero > .container > p { font-size: 1rem; color: var(--gray); }
+
+  .contact-section { padding: 5rem 2rem 6rem; background: var(--bg-2); }
+  .contact-section .container { display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start; }
+
+  .info-col h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.01em; }
+  .info-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .info-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .info-icon {
+    width: 38px; height: 38px; background: rgba(240,165,0,0.1); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0; margin-top: 2px;
+  }
+  .info-item strong { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); margin-bottom: 0.3rem; }
+  .info-item span, .info-item a { font-size: 0.875rem; color: var(--gray); line-height: 1.55; }
+  .info-item a { color: var(--accent); }
+  .info-item a:hover { text-decoration: underline; }
+
+  .form-col { background: var(--bg-3); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+  form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
+  input, textarea, select {
+    background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.8rem 1rem; color: var(--white); font-family: inherit; font-size: 0.9rem;
+    width: 100%; outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); background: rgba(240,165,0,0.03); }
+  select option { background: var(--bg-3); color: var(--white); }
+  textarea { resize: vertical; }
+  button {
+    background: var(--accent); color: var(--bg); border: none;
+    padding: 0.95rem 2rem; border-radius: 10px; font-family: inherit;
+    font-size: 0.9rem; font-weight: 800; letter-spacing: 0.04em; cursor: pointer;
+    transition: background 0.2s, transform 0.2s; width: 100%; margin-top: 0.25rem;
+  }
+  button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  #form-success { color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); border-radius: 10px; padding: 0.75rem 1rem; text-align: center; font-size: 0.875rem; }
+  #form-error { color: #f87171; background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2); border-radius: 10px; padding: 0.75rem 1rem; text-align: center; font-size: 0.875rem; }
+
+  @media (max-width: 900px) { .contact-section .container { grid-template-columns: 1fr; gap: 3rem; } }
+  @media (max-width: 768px) {
+    .page-hero { padding: 5rem 1.25rem 4rem; }
+    .contact-section { padding: 4rem 1.25rem; }
+    .row { grid-template-columns: 1fr; }
+    .form-col { padding: 1.5rem; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const success = document.getElementById('form-success');
+  const error = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn) return;
+    const original = btn.textContent;
+    btn.textContent = 'Envoi en cours...';
+    btn.disabled = true;
+    if (success) success.hidden = true;
+    if (error) error.hidden = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+      const json = await res.json();
+      if (json.success) { form.reset(); if (success) success.hidden = false; }
+      else { if (error) error.hidden = false; }
+    } catch { if (error) error.hidden = false; }
+
+    btn.textContent = original;
+    btn.disabled = false;
+  });
+</script>

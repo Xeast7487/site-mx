@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="À propos — Maxime Turgeon Photographe" lang="fr">
+  <Nav lang="fr" />
+  <main>
+
+    <section class="page-hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <p class="eyebrow">À propos</p>
+        <h1>DERRIÈRE<br /><span>L'OBJECTIF.</span></h1>
+        <p>8 ans à capturer l'effort, l'énergie et la transformation.</p>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="container">
+        <div class="story-text reveal">
+          <p class="eyebrow">Mon parcours</p>
+          <h2>Qui suis-je ?</h2>
+          <p>Maxime Turgeon est né à Montréal, passionné de sport depuis toujours. Après des années à s'entraîner et à photographier ses amis en salle, il a fait le saut vers la photographie professionnelle il y a plus de 8 ans.</p>
+          <p>Aujourd'hui, il travaille avec des athlètes, des entraîneurs personnels, des gyms et des marques de fitness à travers le Québec. Sa force ? Il comprend le sport de l'intérieur. Il sait anticiper le moment parfait — la contraction musculaire, l'effort dans le regard, l'énergie brute d'une séance intense.</p>
+          <p>Basé à Montréal, Maxime se déplace dans tout le Québec pour ses clients. Chaque projet est une collaboration — vous apportez votre passion, il apporte sa vision.</p>
+        </div>
+        <div class="story-img reveal">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=700&h=900&fit=crop&q=80" alt="Maxime Turgeon" />
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        {[
+          { n: '8+', label: 'Années d\'expérience' },
+          { n: '500+', label: 'Séances réalisées' },
+          { n: '150+', label: 'Clients satisfaits' },
+          { n: '4.9★', label: 'Note moyenne' },
+        ].map(s => (
+          <div class="stat reveal">
+            <strong>{s.n}</strong>
+            <span>{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="philosophy">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Ma philosophie</p>
+          <h2>Trois valeurs qui<br />guident mon travail.</h2>
+        </div>
+        <div class="values-grid">
+          {[
+            { n: '01', title: 'Authenticité', desc: 'Je ne mets pas en scène. Je capture le vrai — la sueur, l\'effort, la fierté après l\'entraînement. Les meilleures photos sont celles qui sonnent vrai.' },
+            { n: '02', title: 'Préparation', desc: 'Chaque séance est planifiée : lumière, angles, timing. Je me prépare autant que vous vous préparez pour votre entraînement.' },
+            { n: '03', title: 'Résultat', desc: 'Des photos qui travaillent pour vous — sur Instagram, votre site web, vos affiches. Chaque image a un but précis.' },
+          ].map(v => (
+            <div class="value-card reveal">
+              <span class="v-num">{v.n}</span>
+              <h3>{v.title}</h3>
+              <p>{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="equipment">
+      <div class="container">
+        <div class="eq-header reveal">
+          <p class="eyebrow">Équipement</p>
+          <h2>Des outils<br />à la hauteur.</h2>
+        </div>
+        <div class="eq-grid">
+          {[
+            { icon: '📷', label: 'Canon EOS R5', desc: 'Corps principal' },
+            { icon: '🔭', label: 'Canon RF 24-70mm f/2.8', desc: 'Polyvalence & portraits' },
+            { icon: '⚡', label: 'Éclairage Godox', desc: 'Flash & lumière continue' },
+            { icon: '💾', label: 'Lightroom & Photoshop', desc: 'Retouche professionnelle' },
+          ].map(e => (
+            <div class="eq-card reveal">
+              <span class="eq-icon">{e.icon}</span>
+              <strong>{e.label}</strong>
+              <span>{e.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container reveal">
+        <div>
+          <h2>Travaillons ensemble.</h2>
+          <p>Consultation gratuite · Réponse en 48h · Partout au Québec</p>
+        </div>
+        <a href="/contact" class="btn-accent">Réserver une séance →</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer lang="fr" />
+</Layout>
+
+<style>
+  main { padding-top: 72px; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  .page-hero { position: relative; background: var(--bg); padding: 7rem 2rem 6rem; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 0% 50%, rgba(240,165,0,0.06) 0%, transparent 60%);
+  }
+  .page-hero .container { position: relative; max-width: 800px; }
+  h1 {
+    font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.9;
+    margin-bottom: 1.5rem; color: var(--white);
+  }
+  h1 span { color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.2); }
+  .page-hero > .container > p { font-size: 1rem; color: var(--gray); line-height: 1.7; }
+
+  .story { padding: 6rem 2rem; background: var(--bg-2); }
+  .story .container { display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: start; }
+  .story-text h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+  .story-text p { font-size: 0.95rem; color: var(--gray); line-height: 1.85; margin-bottom: 1rem; }
+  .story-img { border-radius: 16px; overflow: hidden; }
+  .story-img img { width: 100%; aspect-ratio: 3/4; }
+
+  .stats { background: var(--bg-3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats .container {
+    max-width: 900px; padding: 3rem 2rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;
+  }
+  .stat strong { display: block; font-size: 2.5rem; font-weight: 900; color: var(--accent); letter-spacing: -0.03em; margin-bottom: 0.25rem; }
+  .stat span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); }
+
+  .philosophy { padding: 6rem 2rem; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-header h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .value-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; transition: border-color 0.2s; }
+  .value-card:hover { border-color: var(--accent); }
+  .v-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); display: block; margin-bottom: 1rem; }
+  .value-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.75rem; }
+  .value-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.75; }
+
+  .equipment { padding: 5rem 2rem; background: var(--bg-2); }
+  .eq-header { margin-bottom: 3rem; }
+  .eq-header h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
+  .eq-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  .eq-card { background: var(--bg-3); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .eq-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .eq-card strong { font-size: 0.9rem; font-weight: 700; color: var(--white); }
+  .eq-card span { font-size: 0.8rem; color: var(--gray); }
+
+  .cta-band { background: var(--accent); padding: 4rem 2rem; }
+  .cta-band .container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cta-band h2 { font-size: 1.6rem; font-weight: 900; color: var(--bg); margin-bottom: 0.25rem; }
+  .cta-band p { font-size: 0.875rem; color: rgba(0,0,0,0.55); }
+  .btn-accent { background: var(--bg); color: var(--white); font-size: 0.9rem; font-weight: 800; padding: 0.9rem 2rem; border-radius: 10px; white-space: nowrap; transition: opacity 0.2s; }
+  .btn-accent:hover { opacity: 0.85; }
+
+  @media (max-width: 900px) {
+    .story .container { grid-template-columns: 1fr; gap: 3rem; }
+    .story-img { order: -1; }
+    .values-grid { grid-template-columns: 1fr; }
+    .eq-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .stats .container { grid-template-columns: 1fr 1fr; }
+    .page-hero { padding: 5rem 1.25rem 4rem; }
+    .story, .philosophy, .equipment { padding: 4rem 1.25rem; }
+    .cta-band { padding: 3rem 1.25rem; }
+    .cta-band .container { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .eq-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,120 @@
+---
+interface Props { lang?: 'fr' | 'en'; }
+const { lang = 'fr' } = Astro.props;
+
+const r = lang === 'fr'
+  ? { home: '/', about: '/a-propos', services: '/services', contact: '/contact' }
+  : { home: '/en/', about: '/en/about', services: '/en/services', contact: '/en/contact' };
+
+const t = {
+  fr: {
+    tagline: 'Photographe fitness & gym — Montréal, QC',
+    nav: 'Navigation', services: 'Services', contact: 'Contact',
+    portfolio: 'Portfolio', about: 'À propos', servicesLink: 'Services', contactLink: 'Contact',
+    session: 'Séance individuelle', brand: 'Contenu de marque', event: 'Événements',
+    email: 'maxime@mturgeon.photo',
+    instagram: '@maximeturgeon.photo',
+    rights: 'Tous droits réservés.',
+  },
+  en: {
+    tagline: 'Fitness & gym photographer — Montréal, QC',
+    nav: 'Navigation', services: 'Services', contact: 'Contact',
+    portfolio: 'Portfolio', about: 'About', servicesLink: 'Services', contactLink: 'Contact',
+    session: 'Individual Session', brand: 'Brand Content', event: 'Events',
+    email: 'maxime@mturgeon.photo',
+    instagram: '@maximeturgeon.photo',
+    rights: 'All rights reserved.',
+  },
+};
+const text = t[lang];
+---
+
+<footer>
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <a href={r.home} class="logo">
+          <span class="logo-monogram">MT</span>
+          <span class="logo-name">MAXIME<br />TURGEON</span>
+        </a>
+        <p>{text.tagline}</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="col">
+          <h4>{text.nav}</h4>
+          <a href={r.home}>{text.portfolio}</a>
+          <a href={r.about}>{text.about}</a>
+          <a href={r.services}>{text.servicesLink}</a>
+          <a href={r.contact}>{text.contactLink}</a>
+        </div>
+        <div class="col">
+          <h4>{text.services}</h4>
+          <a href={r.services}>{text.session}</a>
+          <a href={r.services}>{text.brand}</a>
+          <a href={r.services}>{text.event}</a>
+        </div>
+        <div class="col">
+          <h4>{text.contact}</h4>
+          <a href={`mailto:${text.email}`}>{text.email}</a>
+          <a href="tel:5141234567">(514) 123-4567</a>
+          <span>Montréal, QC</span>
+          <span>{text.instagram}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <p>© 2026 Maxime Turgeon. {text.rights}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer { background: #040404; color: var(--white); padding: 5rem 2rem 2rem; border-top: 1px solid var(--border); }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1rem; }
+  .logo-monogram {
+    width: 38px; height: 38px; background: var(--accent); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 900; color: var(--bg); letter-spacing: -0.02em; flex-shrink: 0;
+  }
+  .logo-name { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); line-height: 1.3; }
+  .brand p { font-size: 0.85rem; color: var(--gray-dim); line-height: 1.6; margin-bottom: 1.5rem; }
+  .socials { display: flex; gap: 0.6rem; }
+  .socials a {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gray); transition: background 0.2s, color 0.2s;
+  }
+  .socials a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .col { display: flex; flex-direction: column; gap: 0.65rem; }
+  h4 { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem; }
+  .col a, .col span { font-size: 0.875rem; color: var(--gray); line-height: 1.6; transition: color 0.2s; }
+  .col a:hover { color: var(--white); }
+  .bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.2); text-align: center; }
+  @media (max-width: 768px) {
+    .top { grid-template-columns: 1fr; gap: 2.5rem; }
+    .links { grid-template-columns: 1fr 1fr; }
+    footer { padding: 3rem 1.25rem 1.5rem; }
+  }
+  @media (max-width: 480px) { .links { grid-template-columns: 1fr; } }
+</style>
