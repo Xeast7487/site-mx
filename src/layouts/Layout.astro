@@ -24,6 +24,17 @@ const {
   </head>
   <body>
     <slot />
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/6a177038df494c1c358ed6c0/1jplosn8i';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    </script>
   </body>
 </html>
 
@@ -66,11 +77,74 @@ const {
     opacity: 1;
     transform: none;
   }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-36px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(36px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.22s; }
+  .delay-3 { transition-delay: 0.34s; }
+  .delay-4 { transition-delay: 0.46s; }
+  .delay-5 { transition-delay: 0.6s; }
 </style>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const target = parseFloat(e.target.dataset.count);
+        const suffix = e.target.dataset.suffix || '';
+        const isDecimal = String(e.target.dataset.count).includes('.');
+        const dur = 1800;
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - t0) / dur, 1);
+          const val = target * (1 - Math.pow(1 - p, 3));
+          e.target.textContent = (isDecimal ? val.toFixed(1) : Math.floor(val)) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        co.unobserve(e.target);
+      });
+    }, { threshold: 0.5 });
+    co.observe(el);
+  });
 </script>

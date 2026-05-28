@@ -33,13 +33,13 @@ import Footer from '../components/Footer.astro';
     <section class="stats-strip">
       <div class="container">
         {[
-          { n: '8+', label: 'Années d\'expérience' },
-          { n: '500+', label: 'Séances réalisées' },
-          { n: '150+', label: 'Clients satisfaits' },
-          { n: '4.9/5', label: 'Note moyenne' },
+          { n: 8, suffix: '+', label: "Années d'expérience" },
+          { n: 500, suffix: '+', label: 'Séances réalisées' },
+          { n: 150, suffix: '+', label: 'Clients satisfaits' },
+          { n: 4.9, suffix: '/5', label: 'Note moyenne' },
         ].map(s => (
           <div class="stat">
-            <strong>{s.n}</strong>
+            <strong data-count={s.n} data-suffix={s.suffix}>{s.n}{s.suffix}</strong>
             <span>{s.label}</span>
           </div>
         ))}
@@ -58,23 +58,23 @@ import Footer from '../components/Footer.astro';
             <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=1100&fit=crop&q=80" alt="Séance gym" loading="lazy" />
             <div class="grid-overlay"><span>Séance individuelle</span></div>
           </div>
-          <div class="grid-item gi-2 reveal">
+          <div class="grid-item gi-2 reveal delay-1">
             <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=700&fit=crop&q=80" alt="Fitness training" loading="lazy" />
             <div class="grid-overlay"><span>Contenu de marque</span></div>
           </div>
-          <div class="grid-item gi-3 reveal">
+          <div class="grid-item gi-3 reveal delay-2">
             <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&h=700&fit=crop&q=80" alt="Gym poids" loading="lazy" />
             <div class="grid-overlay"><span>Portrait athlète</span></div>
           </div>
-          <div class="grid-item gi-4 reveal">
+          <div class="grid-item gi-4 reveal delay-3">
             <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700&h=700&fit=crop&q=80" alt="Workout" loading="lazy" />
             <div class="grid-overlay"><span>Entraînement</span></div>
           </div>
-          <div class="grid-item gi-5 reveal">
+          <div class="grid-item gi-5 reveal delay-2">
             <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&h=1000&fit=crop&q=80" alt="Gym séance" loading="lazy" />
             <div class="grid-overlay"><span>Personal trainer</span></div>
           </div>
-          <div class="grid-item gi-6 reveal">
+          <div class="grid-item gi-6 reveal delay-1">
             <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1200&h=700&fit=crop&q=80" alt="Fitness" loading="lazy" />
             <div class="grid-overlay"><span>Événement fitness</span></div>
           </div>
@@ -85,13 +85,13 @@ import Footer from '../components/Footer.astro';
     <!-- ABOUT TEASER -->
     <section class="about-teaser">
       <div class="container">
-        <div class="about-content reveal">
+        <div class="about-content reveal-left">
           <p class="eyebrow">À propos</p>
           <h2>Je comprends le sport<br />de l'intérieur.</h2>
           <p>Passionné de fitness depuis toujours, je ne me contente pas de photographier des corps en mouvement — je capture l'effort, l'énergie et la transformation. Avec 8+ ans d'expérience, je travaille avec des athlètes, des entraîneurs et des gyms à travers le Québec.</p>
           <a href="/a-propos" class="link-arrow">Mon parcours →</a>
         </div>
-        <div class="about-visual reveal">
+        <div class="about-visual reveal-right">
           <div class="about-img-wrap">
             <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=700&h=900&fit=crop&q=80" alt="Maxime Turgeon photographe" />
           </div>
@@ -115,8 +115,8 @@ import Footer from '../components/Footer.astro';
             { n: '01', title: 'Séance individuelle', desc: 'Pour les athlètes, coaches et sportifs qui veulent des photos professionnelles pour leurs réseaux sociaux et leur portfolio.', href: '/services' },
             { n: '02', title: 'Contenu de marque', desc: 'Pour les gyms, studios et marques de fitness qui ont besoin d\'un contenu visuel cohérent et impactant.', href: '/services' },
             { n: '03', title: 'Événements fitness', desc: 'Compétitions, inaugurations, défis sportifs — je couvre votre événement de A à Z.', href: '/services' },
-          ].map(s => (
-            <a href={s.href} class="service-card reveal">
+          ].map((s, i) => (
+            <a href={s.href} class={`service-card reveal delay-${i + 1}`}>
               <span class="service-num">{s.n}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
@@ -139,8 +139,8 @@ import Footer from '../components/Footer.astro';
             { q: 'Maxime a su capturer exactement ce que je cherchais. Les photos sont incroyables, je les utilise sur tous mes réseaux !', name: 'Sarah L.', role: 'Coach fitness, Montréal' },
             { q: 'Le meilleur investissement pour mon business. Mes clients comprennent immédiatement ce que je leur offre grâce aux photos.', name: 'Julien B.', role: 'Personal trainer' },
             { q: 'Professionnel, à l\'écoute, et le résultat dépasse largement nos attentes. On retravaillera avec lui sans hésiter.', name: 'CrossFit Verdun', role: 'Gym, Montréal' },
-          ].map(t => (
-            <div class="testi-card reveal">
+          ].map((t, i) => (
+            <div class={`testi-card reveal delay-${i + 1}`}>
               <div class="testi-stars">★★★★★</div>
               <p>"{t.q}"</p>
               <div class="testi-author">
@@ -257,6 +257,22 @@ import Footer from '../components/Footer.astro';
     0%, 100% { opacity: 0.3; transform: scaleY(1); }
     50% { opacity: 1; transform: scaleY(1.1); }
   }
+
+  @keyframes heroEntrance {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes heroExpand {
+    from { opacity: 0; transform: scaleX(0); }
+    to { opacity: 1; transform: none; }
+  }
+  .hero-eyebrow { animation: heroEntrance 0.8s ease 0.1s both; }
+  .line-1 { animation: heroEntrance 1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both; }
+  .line-2 { animation: heroEntrance 1s cubic-bezier(0.22, 1, 0.36, 1) 0.44s both; }
+  .hero-divider { animation: heroExpand 0.65s ease 0.7s both; }
+  .hero-sub { animation: heroEntrance 0.7s ease 0.85s both; }
+  .hero-actions { animation: heroEntrance 0.7s ease 1s both; }
+  .hero-scroll { animation: heroEntrance 0.7s ease 1.3s both; }
 
   /* BUTTONS */
   .btn-primary {
